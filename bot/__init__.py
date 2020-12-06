@@ -21,7 +21,7 @@ CONFIG = Config({
     'ARIA2_DIR' : 'downloads',
     'TORRENT_TRACKER' : '',
     'BAR_SIZE' : 10,
-    'THUMBNAIL_NAME' : 'default_thumbnail.jpg',
+    'THUMBNAIL_NAME' : 'PicsArt_11-18-11.16.31.png',
     'LOCAL' : 'en'
 })
 
