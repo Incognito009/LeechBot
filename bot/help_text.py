@@ -62,7 +62,7 @@ def upgrade(bot, update):
     )
 
     
-@Client.on_message(Filters.private & (filters.document | filters.video | filters.audio | filters.voice | filters.video_note))
+@Client.on_message(Filters.private & (Filters.document | Filters.video | Filters.audio | Filters.voice | Filters.video_note))
 async def rename_cb(bot, update):
  
     file = update.document or update.video or update.audio or update.voice or update.video_note
