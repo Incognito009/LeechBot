@@ -11,9 +11,9 @@ from sqlalchemy import Column, Integer, Boolean, String, ForeignKey, UniqueConst
 
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
     from config import Config
+else:
+    from bot.config import Config
 
 
 def start() -> scoped_session:
