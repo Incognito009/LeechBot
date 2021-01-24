@@ -18,8 +18,7 @@ from script import script
 
 import pyrogram
 
-from pyrogram import Client, Filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
+from pyrogram import Client, Filters InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from pyrogram.errors import UserNotParticipant
 
 from bot.rename_file import rename_doc
