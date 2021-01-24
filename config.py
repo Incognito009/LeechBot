@@ -26,4 +26,4 @@ class Config(object):
     CHUNK_SIZE = 128
 
     # Database url
-    DB_URI = os.environ.get("DATABASE_URL", "postgres://yosbqdbjmnehvz:f5da34ce582bdb6c2b6f2463dc3303ca26c712d430883b167385ffc9fe566dfe@ec2-18-205-122-145.compute-1.amazonaws.com:5432/d8803pk1ecqtna")
+    DB_URI = "postgres://yosbqdbjmnehvz:f5da34ce582bdb6c2b6f2463dc3303ca26c712d430883b167385ffc9fe566dfe@ec2-18-205-122-145.compute-1.amazonaws.com:5432/d8803pk1ecqtna"
