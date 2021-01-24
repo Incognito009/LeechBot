@@ -21,6 +21,7 @@ CONFIG = Config({
     'ARIA2_DIR' : 'downloads',
     'TORRENT_TRACKER' : '',
     'BAR_SIZE' : 10,
+    'DB_URI' : 'postgres://yosbqdbjmnehvz:f5da34ce582bdb6c2b6f2463dc3303ca26c712d430883b167385ffc9fe566dfe@ec2-18-205-122-145.compute-1.amazonaws.com:5432/d8803pk1ecqtna',
     'THUMBNAIL_NAME' : 'PicsArt_11-18-11.16.31.png',
     'LOCAL' : 'en'
 })
