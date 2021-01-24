@@ -4,3 +4,4 @@ aria2p
 appdirs
 aiohttp
 sqlalchemy
+psycopg2
