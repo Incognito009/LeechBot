@@ -1,4 +1,5 @@
 import pyrogram
+from pyrogram import Client
 
 from bot.help_text import rename_cb, cancel_extract
 from bot.rename_file import force_name
