@@ -3,10 +3,4 @@ tgcrypto
 aria2p
 appdirs
 aiohttp
-beautifulsoup4
-hachoir
-numpy
-Pillow
-requests
 sqlalchemy
-psycopg2-binary
