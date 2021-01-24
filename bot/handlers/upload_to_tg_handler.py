@@ -72,7 +72,7 @@ async def func(filepath: str, client: Client,  message: Message, delete=False):
                 chat_id,
                 file, 
                 supports_streaming=True,
-                thumb=str(thumbnail),
+                thumb=thumb_image_path,
                 height=height,
                 width=width,
                 duration=duration,
