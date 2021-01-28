@@ -11,7 +11,7 @@ else:
 from pyrogram import Client, Message, Filters
 
 from translation import Translation
-from helper_funcs.database import *
+from data.database import *
 
 
 @Client.on_message(Filters.private & Filters.photo)
