@@ -2,3 +2,6 @@ https://github.com/prgofficial/pyrogram/archive/asyncio.zip
 tgcrypto
 aria2p
 appdirs
+sqlalchemy
+psycopg2-binary
+feedparser
