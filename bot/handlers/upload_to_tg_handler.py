@@ -8,6 +8,12 @@ LOGGER = logging.getLogger(__name__)
 # GOAL:
 # universal function for uploading file to telegram
 
+if bool(os.environ.get("WEBHOOK", False)):
+    from sample_config import Config
+else:
+    from config import Config
+
+from translation import Translation
 from os import path as os_path, listdir as os_lisdir, remove as os_remove, rmdir as os_rmdir
 from time import time
 from math import floor
@@ -15,6 +21,7 @@ from pyrogram import Client, Message
 from bot import LOCAL, CONFIG, STATUS
 from bot.plugins import formater, split, thumbnail_video, ffprobe
 from data.database import *
+
 async def func(filepath: str, client: Client,  message: Message, delete=False):
     if not os_path.exists(filepath):
         LOGGER.error(f'File not found : {filepath}')
@@ -64,15 +71,34 @@ async def func(filepath: str, client: Client,  message: Message, delete=False):
                     name = file.name
                 )
             )
-            thumbnail = os_path.join(CONFIG.ROOT, CONFIG.WORKDIR, CONFIG.THUMBNAIL_NAME)
-            use_default_thumbnail = os_path.exists(thumbnail)
-            if not use_default_thumbnail:
-                thumbnail = await thumbnail_video.func(file.path)
+            thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+
+        if not os.path.exists(thumb_image_path):
+            mes = await thumb(update.from_user.id)
+            if mes != None:
+                m = await bot.get_messages(update.chat.id, mes.msg_id)
+                await m.download(file_name=thumb_image_path)
+                thumb_image_path = thumb_image_path
+            else:
+                if "thumbnail" in response_json:
+                    if response_json["thumbnail"] is not None:
+                        thumbnail = response_json["thumbnail"]
+                        thumbnail_image = response_json["thumbnail"]
+                thumb_image_path = DownLoadFile(
+                    thumbnail_image,
+                    Config.DOWNLOAD_LOCATION + "/" +
+                    str(update.from_user.id) + ".jpg",
+                    Config.CHUNK_SIZE,
+                    None,  # bot,
+                    Translation.DOWNLOAD_START,
+                    update.message_id,
+                    update.chat.id
+                )
             await client.send_video(
                 chat_id,
                 file, 
                 supports_streaming=True,
-                thumb=str(thumbnail),
+                thumb=thumb_image_path,
                 height=height,
                 width=width,
                 duration=duration,
