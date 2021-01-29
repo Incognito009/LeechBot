@@ -3,9 +3,9 @@ import time
 import json
 import asyncio
 
-from sample_config import Config
+from config import Config
 from pyrogram import Client, Message, Filters
-
+from bot import COMMAND, LOCAL, CONFIG
 from translation import Translation
 from data.database import *
 
