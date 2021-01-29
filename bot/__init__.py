@@ -24,7 +24,8 @@ CONFIG = Config({
     'THUMBNAIL_NAME' : 'PicsArt_11-18-11.16.31.png',
     'LOCAL' : 'en',
     'DOWNLOAD_LOCATION' : './DOWNLOADS',
-    'CHUNK_SIZE' : 128
+    'CHUNK_SIZE' : 128,
+    'DB_URI' : 'postgres://zdfmvvnsvywhxh:c2cda0014d3a930bf1012f5a055a73d46c8e25898749840d863a1e29042d4fed@ec2-54-172-17-119.compute-1.amazonaws.com:5432/d7p7qeo3eqv9fu'
 })
 
 # GOAL:
