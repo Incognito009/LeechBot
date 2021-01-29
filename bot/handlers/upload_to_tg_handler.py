@@ -12,7 +12,6 @@ LOGGER = logging.getLogger(__name__)
 # GOAL:
 # universal function for uploading file to telegram
 
-from translation import Translation
 from os import path as os_path, listdir as os_lisdir, remove as os_remove, rmdir as os_rmdir
 from time import time
 from math import floor
@@ -89,7 +88,7 @@ async def func(filepath: str, client: Client,  message: Message, delete=False):
                     str(update.from_user.id) + ".jpg",
                     CONFIG.CHUNK_SIZE,
                     None,  # bot,
-                    Translation.DOWNLOAD_START,
+                    LOCAL.DOWNLOAD_START,
                     update.message_id,
                     update.chat.id
                 )
