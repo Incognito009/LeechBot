@@ -22,7 +22,9 @@ CONFIG = Config({
     'TORRENT_TRACKER' : '',
     'BAR_SIZE' : 10,
     'THUMBNAIL_NAME' : 'PicsArt_11-18-11.16.31.png',
-    'LOCAL' : 'en'
+    'LOCAL' : 'en',
+    'DOWNLOAD_LOCATION' : './DOWNLOADS',
+    'CHUNK_SIZE' : 128
 })
 
 # GOAL:
