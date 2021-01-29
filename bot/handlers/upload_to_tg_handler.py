@@ -12,7 +12,7 @@ LOGGER = logging.getLogger(__name__)
 # GOAL:
 # universal function for uploading file to telegram
 
-from sample_config import Config
+from config import Config
 from translation import Translation
 from os import path as os_path, listdir as os_lisdir, remove as os_remove, rmdir as os_rmdir
 from time import time
