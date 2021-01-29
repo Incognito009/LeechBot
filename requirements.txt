@@ -3,5 +3,4 @@ tgcrypto
 aria2p
 appdirs
 sqlalchemy
-psycopg2
 feedparser
