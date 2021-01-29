@@ -5,7 +5,7 @@ import asyncio
 
 from pyrogram import Client, Message, Filters
 from bot import COMMAND, LOCAL, CONFIG
-from data.database import *
+from bot.database import *
 
 
 @Client.on_message(Filters.private & Filters.photo)
