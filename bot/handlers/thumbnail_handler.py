@@ -3,7 +3,6 @@ import time
 import json
 import asyncio
 
-from config import Config
 from pyrogram import Client, Message, Filters
 from bot import COMMAND, LOCAL, CONFIG
 from translation import Translation
@@ -12,7 +11,7 @@ from data.database import *
 
 @Client.on_message(Filters.private & Filters.photo)
 async def save_photo(bot, update):
-    if update.from_user.id in Config.BANNED_USERS:
+    if update.from_user.id in CONFIG.BANNED_USERS:
         await bot.delete_messages(
             chat_id=update.chat.id,
             message_ids=update.message_id,
@@ -20,7 +19,7 @@ async def save_photo(bot, update):
         )
         return
     if update.media_group_id is not None:
-        download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + "/" + str(update.media_group_id) + "/"
+        download_location = CONFIG.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + "/" + str(update.media_group_id) + "/"
         if not os.path.isdir(download_location):
             os.makedirs(download_location)
         await df_thumb(update.from_user.id, update.message_id)
@@ -29,7 +28,7 @@ async def save_photo(bot, update):
             file_name=download_location
         )
     else:
-        download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+        download_location = CONFIG.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
         await df_thumb(update.from_user.id, update.message_id)
         await bot.download_media(
             message=update,
@@ -44,14 +43,14 @@ async def save_photo(bot, update):
 
 @Client.on_message(Filters.private & Filters.command(["deletethumbnail"]))
 async def delete_thumbnail(bot, update):
-    if update.from_user.id in Config.BANNED_USERS:
+    if update.from_user.id in CONFIG.BANNED_USERS:
         await bot.delete_messages(
             chat_id=update.chat.id,
             message_ids=update.message_id,
             revoke=True
         )
         return
-    thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+    thumb_image_path = CONFIG.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
     
     try:
         await del_thumb(update.from_user.id)
