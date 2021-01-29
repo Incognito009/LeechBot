@@ -5,7 +5,6 @@ import asyncio
 
 from pyrogram import Client, Message, Filters
 from bot import COMMAND, LOCAL, CONFIG
-from translation import Translation
 from data.database import *
 
 
@@ -36,7 +35,7 @@ async def save_photo(bot, update):
         )
         await bot.send_message(
             chat_id=update.chat.id,
-            text=Translation.SAVED_CUSTOM_THUMB_NAIL,
+            text=LOCAL.SAVED_CUSTOM_THUMB_NAIL,
             reply_to_message_id=update.message_id
         )
 
@@ -64,6 +63,6 @@ async def delete_thumbnail(bot, update):
 
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Translation.DEL_ETED_CUSTOM_THUMB_NAIL,
+        text=LOCAL.DEL_ETED_CUSTOM_THUMB_NAIL,
         reply_to_message_id=update.message_id
     )
