@@ -18,7 +18,7 @@ from math import floor
 from pyrogram import Client, Message
 from bot import LOCAL, CONFIG, STATUS
 from bot.plugins import formater, split, thumbnail_video, ffprobe
-from data.database import *
+from bot.database import *
 
 async def func(filepath: str, client: Client,  message: Message, delete=False):
     if not os_path.exists(filepath):
