@@ -12,7 +12,6 @@ LOGGER = logging.getLogger(__name__)
 # GOAL:
 # universal function for uploading file to telegram
 
-from config import Config
 from translation import Translation
 from os import path as os_path, listdir as os_lisdir, remove as os_remove, rmdir as os_rmdir
 from time import time
@@ -71,7 +70,7 @@ async def func(filepath: str, client: Client,  message: Message, delete=False):
                     name = file.name
                 )
             )
-            thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+            thumb_image_path = CONFIG.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
 
         if not os.path.exists(thumb_image_path):
             mes = await thumb(update.from_user.id)
@@ -86,9 +85,9 @@ async def func(filepath: str, client: Client,  message: Message, delete=False):
                         thumbnail_image = response_json["thumbnail"]
                 thumb_image_path = DownLoadFile(
                     thumbnail_image,
-                    Config.DOWNLOAD_LOCATION + "/" +
+                    CONFIG.DOWNLOAD_LOCATION + "/" +
                     str(update.from_user.id) + ".jpg",
-                    Config.CHUNK_SIZE,
+                    CONFIG.CHUNK_SIZE,
                     None,  # bot,
                     Translation.DOWNLOAD_START,
                     update.message_id,
