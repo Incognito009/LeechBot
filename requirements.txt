@@ -2,6 +2,7 @@ https://github.com/CW4RR10R/pyrogram/archive/asyncio.zip
 tgcrypto
 aria2p
 appdirs
+postgres
 sqlalchemy
 feedparser
 psycopg2-binary
